@@ -8,9 +8,6 @@ export class TaskFilterDto extends BaseFilter {
   @ApiProperty({ required: false })
   endDate?: Date;
 
-  @ApiProperty()
-  duration?: number;
-
   @ApiProperty({ required: false })
   status?: string;
 
