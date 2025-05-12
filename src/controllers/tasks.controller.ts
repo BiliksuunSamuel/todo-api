@@ -10,7 +10,7 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 import { UserJwtDetails } from 'src/dtos/auth/user.jwt.details';
 import { TaskFilterDto } from 'src/dtos/tasks/task.filter.dto';
@@ -22,6 +22,7 @@ import { TaskService } from 'src/services/task.service';
 @Controller('api/tasks')
 @ApiTags('Tasks')
 @UseGuards(JwtAuthGuard)
+@ApiBearerAuth('Authorization')
 export class TasksController {
   constructor(private readonly taskService: TaskService) {}
 
